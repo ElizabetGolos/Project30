@@ -29,8 +29,8 @@ public class PersonTest {
         currentTime();
     }
 
-    @DataProvider(name = "testAgePerson")
-    Object[][] testAgePerson() {
+    @DataProvider(name = "TestPerson")
+    Object[][] TestPerson() {
         return new Object[][] {
 
                 {-1, false},
@@ -39,17 +39,19 @@ public class PersonTest {
                 {13,true},
                 {14,true},
                 {18,true},
-                {19,false},
+                {19,true},
                 {20,false}
         };
     }
 
-    @Test(dataProvider = "testAgePerson")
-    void testTeenager(int age, boolean expected) {
+    @Test(dataProvider = "TestPerson")
+    void PersonTest(int age, boolean expected) {
         boolean result = Person.isTeenager(age);
-        System.out.println("age " + age + "= " + "Actual result: " + result + " / " + "Expected result: " + expected);
+        System.out.println("age " + age + "= " + "Actual result: " + result + " , " + "Expected result: " + expected);
         assertEquals(result, expected);
     }
 
 
-}
+    }
+
+
